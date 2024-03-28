@@ -5,14 +5,13 @@ import RegisterENSName from "./component/RegisterENSName";
 import "@radix-ui/themes/styles.css";
 import "./index.css";
 import useGetMessages from "./hooks/useGetMessages";
-import { useState } from "react";
 import Messages from "./component/Messages";
 
 configureWeb3Modal();
 
 function App() {
-  const [name] = useState();
-  const { loading, data: messages } = useGetMessages(name);
+  const { loading, data: messages } = useGetMessages();
+  console.log("messages", messages);
 
   return (
     <Container>
@@ -26,7 +25,7 @@ function App() {
           {loading ? (
             <h3>Loading...</h3>
           ) : messages.length !== 0 ? (
-            messages.map((item, index) => (
+            messages.map((index, item) => (
               <Messages
                 key={index}
                 sender={item.name}

@@ -15,12 +15,18 @@ const useGetMessages = () => {
     contract
       .getSentMessages()
       .then((res) => {
+        console.log("response", res);
         const messageData = res.map((item) => ({
           content: item.content,
           sender: item.sender,
           recipient: item.recipient,
           timestamp: item.timestamp,
         }));
+
+        console.log("messageData", {
+          loading: false,
+          data: messageData,
+        });
         setMessages({
           loading: false,
           data: messageData,
