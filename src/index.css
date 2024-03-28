@@ -6,12 +6,17 @@
   background-color: #333;
   color: #fff;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow: none;
 }
 button {
   background-color: rgb(65, 161, 129) !important;
   color: #000 !important;
+}
+
+body {
+  background-color: #333 !important;
 }
