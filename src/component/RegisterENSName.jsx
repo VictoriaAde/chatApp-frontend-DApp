@@ -24,7 +24,7 @@ const RegisterENSName = () => {
             <Text as="div" size="2" mb="1" weight="bold">
               ENS Name
             </Text>
-            <input
+            <TextField.Root
               value={ENSName}
               onChange={(e) => setENSName(e.target.value)}
               placeholder="Enter ENS Name"

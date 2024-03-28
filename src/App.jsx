@@ -1,11 +1,12 @@
+import { Container, Flex } from "@radix-ui/themes";
 import { configureWeb3Modal } from "./connection";
 import Header from "./component/Header";
 import RegisterENSName from "./component/RegisterENSName";
+import "@radix-ui/themes/styles.css";
 import "./index.css";
 import useGetMessages from "./hooks/useGetMessages";
 import { useState } from "react";
 import Messages from "./component/Messages";
-import { Flex } from "@radix-ui/themes";
 
 configureWeb3Modal();
 
@@ -14,7 +15,7 @@ function App() {
   const { loading, data: messages } = useGetMessages(name);
 
   return (
-    <>
+    <Container>
       <main className="px-8">
         <Header />
         <div>
@@ -38,7 +39,7 @@ function App() {
           )}
         </Flex>
       </main>
-    </>
+    </Container>
   );
 }
 
