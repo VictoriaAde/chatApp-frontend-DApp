@@ -8,6 +8,7 @@ const useGetMessages = () => {
     loading: true,
     data: [],
   });
+  console.log("messages in hooks", messages);
 
   useEffect(() => {
     const contract = getChatContract(readOnlyProvider);
@@ -24,9 +25,9 @@ const useGetMessages = () => {
         }));
 
         console.log("messageData", {
-          loading: false,
           data: messageData,
         });
+
         setMessages({
           loading: false,
           data: messageData,

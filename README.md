@@ -1,8 +1,30 @@
-# React + Vite
+# ENS Chat DApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements a decentralized chat application on the Ethereum blockchain, leveraging the Ethereum Name Service (ENS) for user registration and identification.
 
-Currently, two official plugins are available:
+## Components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **ENS Contract:**
+  - Registers users with their chosen ENS names.
+  - Stores user profiles, including names and profile image URLs.
+  - Deployed at: [ENS Contract Address on Mumbai Testnet] (https://mumbai.polygonscan.com/address/0x81cd3ee7dF9Cf837BC9e577ff0AaB63829741638)
+- **Chat Contract:**
+  - Enables peer-to-peer messaging between registered users.
+  - Retrieves user information (names and images) from the ENS contract.
+  - Deployed at: [Chat Contract Address on Mumbai Testnet] (https://mumbai.polygonscan.com/address/0x4C48217c3007EdD90c8Aa884660467F3AF4fA753)
+- **Frontend:**
+  - Connects to the ENS and Chat contracts using a Web3 library (e.g., MetaMask).
+  - Provides a user-friendly interface for:
+    - ENS Registration: Choose a unique ENS name and set a profile image URL.
+    - Chat Functionality: View a list of registered users, initiate chats, and exchange messages.
+    - Profile Management: Update your profile image URL or retrieve current information.
+  - Utilizes IPFS for decentralized storage of profile images.
+  - Live Demo: [Frontend Link] (https://chat-dapp-using-ens.vercel.app/)
+
+## Tech Stack
+
+- Solidity (Smart Contract Development)
+- Ethers.js (Frontend Interaction with Blockchain)
+- Web3Modal for wallet connectivity
+- React
+- IPFS (Decentralized Storage for Images)
