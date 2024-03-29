@@ -1,4 +1,4 @@
-import { Box, Card, Flex, Text } from "@radix-ui/themes";
+import { Box, Card, Flex } from "@radix-ui/themes";
 
 // eslint-disable-next-line react/prop-types
 const Messages = ({ sender, receiver, content }) => {
@@ -7,9 +7,11 @@ const Messages = ({ sender, receiver, content }) => {
       <Flex gap="" align="center">
         <Box width={"100%"}>
           <Flex justify={"between"} align={"center"}>
-            <Text>Sender:{sender}</Text>
-            <Text>Receiver:{receiver}</Text>
-            <Text>content:{content}</Text>
+            <h4 className="font-normal">
+              Sender: <span className="capitalize font-normal">{sender}</span>
+            </h4>
+            <h4>Receiver: {receiver}</h4>
+            <h4>content: {content}</h4>
           </Flex>
         </Box>
       </Flex>

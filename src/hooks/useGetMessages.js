@@ -9,7 +9,7 @@ const useGetMessages = () => {
     loading: true,
     data: [],
   });
-  console.log("messages in hooks", messages);
+  // console.log("messages in hooks", messages);
 
   const { address } = useWeb3ModalAccount();
   console.log(address);
@@ -31,9 +31,9 @@ const useGetMessages = () => {
               timestamp: item.timestamp,
             }));
 
-            console.log("messageData", {
-              data: messageData,
-            });
+            // console.log("messageData", {
+            //   data: messageData,
+            // });
 
             setMessages({
               loading: false,
