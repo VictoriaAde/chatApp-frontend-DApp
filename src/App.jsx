@@ -1,11 +1,9 @@
 import { Flex } from "@radix-ui/themes";
-// import { configureWeb3Modal } from "./connection";
-// import Header from "./component/Header";
-// import RegisterENSName from "./component/RegisterENSName";
 import "@radix-ui/themes/styles.css";
 import "./index.css";
 import useGetMessages from "./hooks/useGetMessages";
 import Messages from "./component/Messages";
+import SendMessage from "./component/SendMessage";
 
 function App() {
   const { loading, data: messages } = useGetMessages();
@@ -13,11 +11,7 @@ function App() {
 
   return (
     <main className="p-8">
-      {/* <Header /> */}
-      {/* <div>
-          <RegisterENSName />
-        </div> */}
-      <div>ChatDApp</div>
+      <h1>ChatDApp</h1>
 
       <Flex wrap={"wrap"} gap={"6"}>
         {loading ? (
@@ -35,6 +29,10 @@ function App() {
           <h5>Could not get messages!!</h5>
         )}
       </Flex>
+
+      <div>
+        <SendMessage />
+      </div>
     </main>
   );
 }

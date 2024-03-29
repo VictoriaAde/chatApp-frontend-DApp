@@ -9,7 +9,7 @@ import {
 } from "@web3modal/ethers/react";
 import { toast } from "react-toastify";
 
-const useSendMessage = (content, recipientENSName) => {
+const useSendMessage = (recipientENSName, content) => {
   const { chainId } = useWeb3ModalAccount();
   const { walletProvider } = useWeb3ModalProvider();
 
@@ -21,7 +21,7 @@ const useSendMessage = (content, recipientENSName) => {
     const contract = getChatContract(signer);
 
     try {
-      const transaction = await contract.sendMessage(content, recipientENSName);
+      const transaction = await contract.sendMessage(recipientENSName, content);
       console.log("transaction: ", transaction);
       const receipt = await transaction.wait();
 

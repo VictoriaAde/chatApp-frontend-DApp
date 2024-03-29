@@ -10,12 +10,6 @@ const Messages = ({ sender, receiver, content }) => {
             <Text>Sender:{sender}</Text>
             <Text>Receiver:{receiver}</Text>
             <Text>content:{content}</Text>
-            {/* <button
-              className="text-white bg-blue-600 py-1 px-4 rounded-md"
-              onClick={() => handleSendMessage()}
-            >
-              Send Message
-            </button> */}
           </Flex>
         </Box>
       </Flex>
