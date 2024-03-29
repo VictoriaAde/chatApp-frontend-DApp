@@ -20,8 +20,8 @@ function App() {
           messages.map((index, item) => (
             <Messages
               key={index}
-              sender={item.name}
-              receiver={item.sender}
+              sender={item.sender}
+              receiver={item.recipient}
               content={item.content}
             />
           ))
