@@ -1,14 +1,14 @@
 import { useCallback } from "react";
 import { isSupportedChain } from "../utils";
 import { getProvider } from "../constants/providers";
-import { getENSContract } from "../constants/contracts";
+import { getChatContract } from "../constants/contracts";
 import {
   useWeb3ModalAccount,
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 import { toast } from "react-toastify";
 
-const useRegisterENSName = (name, image) => {
+const useLoginENS = (name) => {
   const { chainId } = useWeb3ModalAccount();
   const { walletProvider } = useWeb3ModalProvider();
 
@@ -17,10 +17,10 @@ const useRegisterENSName = (name, image) => {
     const readWriteProvider = getProvider(walletProvider);
     const signer = await readWriteProvider.getSigner();
 
-    const contract = getENSContract(signer);
+    const contract = getChatContract(signer);
 
     try {
-      const transaction = await contract.registerUser(name, image);
+      const transaction = await contract.registerENSName(name);
       console.log("transaction: ", transaction);
       const receipt = await transaction.wait();
 
@@ -30,7 +30,7 @@ const useRegisterENSName = (name, image) => {
         return toast.success("registration successful!");
       }
 
-      toast.error("registration failed!");
+      console.log("registration failed!");
     } catch (error) {
       toast.error(error);
       // let errorText;
@@ -44,7 +44,7 @@ const useRegisterENSName = (name, image) => {
 
       // console.error("error: ", errorText);
     }
-  }, [chainId, walletProvider, name, image]);
+  }, [chainId, walletProvider, name]);
 };
 
-export default useRegisterENSName;
+export default useLoginENS;

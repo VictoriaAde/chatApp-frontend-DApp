@@ -1,24 +1,23 @@
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
-import useRegisterENSName from "../hooks/useRegisterENSName";
+import useLoginENS from "../hooks/useLoginENS";
 import { Link } from "react-router-dom";
 
-const RegisterENSName = () => {
+const LoginENS = () => {
   const [ENSName, setENSName] = useState("");
-  const [ENSImage, setImageName] = useState("");
 
-  const handleRegisterName = useRegisterENSName(ENSName, ENSImage);
+  const handleLogin = useLoginENS(ENSName);
 
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button className="s">Register your ENS Name</Button>
+        <Button className="s">Login</Button>
       </Dialog.Trigger>
 
       <Dialog.Content style={{ maxWidth: 450 }}>
-        <Dialog.Title>Register Name</Dialog.Title>
+        <Dialog.Title>Login in with your ENS name </Dialog.Title>
         <Dialog.Description size="2" mb="4">
-          Register ENS Name
+          Login
         </Dialog.Description>
 
         <Flex direction="column" gap="3">
@@ -31,18 +30,6 @@ const RegisterENSName = () => {
               onChange={(e) => setENSName(e.target.value)}
               placeholder="Enter ENS Name"
             />
-          </label>{" "}
-          <label>
-            <Text as="div" size="2" mb="1" weight="bold">
-              ENS Image
-            </Text>
-            <input
-              type="file"
-              name=""
-              id=""
-              value={ENSImage}
-              onChange={(e) => setImageName(e.target.value)}
-            />
           </label>
         </Flex>
 
@@ -52,9 +39,9 @@ const RegisterENSName = () => {
               Cancel
             </Button>
           </Dialog.Close>
-          <Button className="text-black" onClick={handleRegisterName}>
-            <Link to={`/login`} className="text-black">
-              Register
+          <Button className="text-black" onClick={handleLogin}>
+            <Link to={`/chat-app`} className="text-black">
+              Login
             </Link>
           </Button>
         </Flex>
@@ -63,4 +50,4 @@ const RegisterENSName = () => {
   );
 };
 
-export default RegisterENSName;
+export default LoginENS;

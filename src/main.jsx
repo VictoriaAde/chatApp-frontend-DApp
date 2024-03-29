@@ -8,11 +8,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Register from "./Register.jsx";
 import ErrorPage from "./error-page.jsx";
+import LoginENS from "./component/LoginENS.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Register />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <LoginENS />,
     errorElement: <ErrorPage />,
   },
   {
