@@ -1,6 +1,7 @@
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
 import useRegisterENSName from "../hooks/useRegisterENSName";
+import { Link } from "react-router-dom";
 
 const RegisterENSName = () => {
   const [ENSName, setENSName] = useState("");
@@ -10,7 +11,7 @@ const RegisterENSName = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button className="bg-blue-600">Register your ENS Name</Button>
+        <Button className="s">Register your ENS Name</Button>
       </Dialog.Trigger>
 
       <Dialog.Content style={{ maxWidth: 450 }}>
@@ -38,8 +39,10 @@ const RegisterENSName = () => {
               Cancel
             </Button>
           </Dialog.Close>
-          <Button className="bg-blue-600" onClick={handleRegisterName}>
-            Register
+          <Button className="text-black" onClick={handleRegisterName}>
+            <Link to={`/chat-app`} className="text-black">
+              Register
+            </Link>
           </Button>
         </Flex>
       </Dialog.Content>
