@@ -12,8 +12,9 @@
   overflow: none;
 }
 button {
-  background-color: rgb(65, 161, 129) !important;
-  color: #000 !important;
+  background-color: #cb2f3e !important;
+  color: #fff !important;
+  font-weight: bold;
 }
 
 body {

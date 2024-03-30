@@ -50,12 +50,12 @@ const LoadingSpinner = () => {
         >
           <g>
             <rect
-              fill="hsl(193,90%,50%)"
+              fill="#FF66C4"
               width="128"
               height="64"
               clipPath="url(#smiley-eyes)"
             />
-            <g fill="none" stroke="hsl(193,90%,50%)">
+            <g fill="none" stroke="#FF66C4">
               <circle
                 className="smiley__mouth1"
                 cx="64"
