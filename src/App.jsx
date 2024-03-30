@@ -5,6 +5,7 @@ import useGetMessages from "./hooks/useGetMessages";
 import Messages from "./component/Messages";
 import SendMessage from "./component/SendMessage";
 import LoadingSpinner from "./component/LoadingSpinner/LoadingSpinner";
+import Header from "./component/Header";
 
 function App() {
   const { loading, sent, received } = useGetMessages();
@@ -14,6 +15,8 @@ function App() {
 
   return (
     <main className="p-8">
+      <Header />
+
       <h1>ChatDApp</h1>
       <p className="capitalize">
         Hello <span className="uppercase">{currentUser}</span>, welcome back!

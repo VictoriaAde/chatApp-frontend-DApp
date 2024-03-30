@@ -33,4 +33,8 @@ export const configureWeb3Modal = () =>
     chains: [mumbai],
     projectId: import.meta.env.VITE_projectId,
     enableAnalytics: false, // Optional - defaults to your Cloud configuration
+    // themeVariables: {
+    //   "--w3m-color-mix": "#00BB7F",
+    //   "--w3m-color-mix-strength": 40,
+    // },
   });

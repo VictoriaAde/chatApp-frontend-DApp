@@ -1,4 +1,4 @@
-import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
+import { Button, Flex, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
 import useLoginENS from "../hooks/useLoginENS";
 import { Link } from "react-router-dom";
@@ -9,16 +9,9 @@ const LoginENS = () => {
   const handleLogin = useLoginENS(ENSName);
 
   return (
-    <Dialog.Root>
-      <Dialog.Trigger>
-        <Button className="s">Login</Button>
-      </Dialog.Trigger>
-
-      <Dialog.Content style={{ maxWidth: 450 }}>
-        <Dialog.Title>Login in with your ENS name </Dialog.Title>
-        <Dialog.Description size="2" mb="4">
-          Login
-        </Dialog.Description>
+    <Flex direction={"column"} align={"center"}>
+      <Flex width={"400px"} direction={"column"} align={"center"}>
+        <h2 className="s">Login</h2>
 
         <Flex direction="column" gap="3">
           <label>
@@ -34,19 +27,17 @@ const LoginENS = () => {
         </Flex>
 
         <Flex gap="3" mt="4" justify="end">
-          <Dialog.Close>
-            <Button variant="soft" color="gray">
-              Cancel
-            </Button>
-          </Dialog.Close>
+          <Button variant="soft" color="gray">
+            Cancel
+          </Button>
           <Button className="text-black" onClick={handleLogin}>
             <Link to={`/chat-app`} className="text-black">
               Login
             </Link>
           </Button>
         </Flex>
-      </Dialog.Content>
-    </Dialog.Root>
+      </Flex>
+    </Flex>
   );
 };
 

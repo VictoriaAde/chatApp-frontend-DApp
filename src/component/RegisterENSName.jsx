@@ -1,4 +1,4 @@
-import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
+import { Button, Flex, Text, TextField } from "@radix-ui/themes";
 import { useState } from "react";
 import useRegisterENSName from "../hooks/useRegisterENSName";
 import { Link } from "react-router-dom";
@@ -10,20 +10,13 @@ const RegisterENSName = () => {
   const handleRegisterName = useRegisterENSName(ENSName, ENSImage);
 
   return (
-    <Dialog.Root>
-      <Dialog.Trigger>
-        <Button className="s">Register your ENS Name</Button>
-      </Dialog.Trigger>
-
-      <Dialog.Content style={{ maxWidth: 450 }}>
-        <Dialog.Title>Register Name</Dialog.Title>
-        <Dialog.Description size="2" mb="4">
-          Register ENS Name
-        </Dialog.Description>
+    <Flex direction={"column"} align={"center"}>
+      <Flex width={"400px"} direction={"column"} align={"center"}>
+        <h2 className="s">Register </h2>
 
         <Flex direction="column" gap="3">
           <label>
-            <Text as="div" size="2" mb="1" weight="bold">
+            <Text as="div" size="2" mb="1" weight="bold" align={"left"}>
               ENS Name
             </Text>
             <TextField.Root
@@ -33,7 +26,7 @@ const RegisterENSName = () => {
             />
           </label>{" "}
           <label>
-            <Text as="div" size="2" mb="1" weight="bold">
+            <Text as="div" size="2" mb="1" weight="bold" align={"left"}>
               ENS Image
             </Text>
             <input
@@ -47,19 +40,17 @@ const RegisterENSName = () => {
         </Flex>
 
         <Flex gap="3" mt="4" justify="end">
-          <Dialog.Close>
-            <Button variant="soft" color="gray">
-              Cancel
-            </Button>
-          </Dialog.Close>
+          <Button variant="soft" color="gray">
+            Cancel
+          </Button>
           <Button className="text-black" onClick={handleRegisterName}>
             <Link to={`/login`} className="text-black">
               Register
             </Link>
           </Button>
         </Flex>
-      </Dialog.Content>
-    </Dialog.Root>
+      </Flex>
+    </Flex>
   );
 };
 
