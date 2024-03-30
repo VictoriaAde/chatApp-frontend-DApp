@@ -44,6 +44,37 @@
   {
     "inputs": [
       {
+        "internalType": "string",
+        "name": "ensName",
+        "type": "string"
+      }
+    ],
+    "name": "registerENSName",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "recipientENSName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "content",
+        "type": "string"
+      }
+    ],
+    "name": "sendMessage",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "",
         "type": "address"
@@ -87,7 +118,7 @@
         "type": "string"
       }
     ],
-    "name": "getReceivedMessages",
+    "name": "getMessages",
     "outputs": [
       {
         "components": [
@@ -113,83 +144,38 @@
           }
         ],
         "internalType": "struct ChatApp.Message[]",
-        "name": "",
+        "name": "sentMessages",
         "type": "tuple[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "ensName",
-        "type": "string"
-      }
-    ],
-    "name": "getSentMessages",
-    "outputs": [
-      {
-        "components": [
-          {
-            "internalType": "string",
-            "name": "content",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "sender",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "recipient",
-            "type": "string"
-          },
-          {
-            "internalType": "uint256",
-            "name": "timestamp",
-            "type": "uint256"
-          }
-        ],
-        "internalType": "struct ChatApp.Message[]",
-        "name": "",
-        "type": "tuple[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "ensName",
-        "type": "string"
-      }
-    ],
-    "name": "registerENSName",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "recipientENSName",
-        "type": "string"
       },
       {
-        "internalType": "string",
-        "name": "content",
-        "type": "string"
+        "components": [
+          {
+            "internalType": "string",
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "sender",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "recipient",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct ChatApp.Message[]",
+        "name": "receivedMessages",
+        "type": "tuple[]"
       }
     ],
-    "name": "sendMessage",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {

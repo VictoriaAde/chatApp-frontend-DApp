@@ -7,7 +7,8 @@ import { useWeb3ModalAccount } from "@web3modal/ethers/react";
 const useGetMessages = () => {
   const [messages, setMessages] = useState({
     loading: true,
-    data: [],
+    sent: [],
+    received: [],
   });
   // console.log("messages in hooks", messages);
 
@@ -21,27 +22,32 @@ const useGetMessages = () => {
       .getENSName(address)
       .then((ensName) => {
         contract
-          .getSentMessages(ensName)
-          .then((res) => {
-            console.log("response", res);
-            const messageData = res.map((item) => ({
+          .getMessages(ensName)
+          .then(([sentMessages, receivedMessages]) => {
+            console.log("response", sentMessages, receivedMessages);
+            const sentMessageData = sentMessages.map((item) => ({
               content: item.content,
               sender: item.sender,
               recipient: item.recipient,
               timestamp: item.timestamp,
             }));
 
-            // console.log("messageData", {
-            //   data: messageData,
-            // });
+            const receivedMessageData = receivedMessages.map((item) => ({
+              content: item.content,
+              sender: item.sender,
+              recipient: item.recipient,
+              timestamp: item.timestamp,
+            }));
 
             setMessages({
               loading: false,
-              data: messageData,
+              sent: sentMessageData,
+              received: receivedMessageData,
             });
           })
+
           .catch((err) => {
-            toast.error("error fetching: ", err);
+            console.log(err);
             setMessages((prev) => ({ ...prev, loading: false }));
           });
       })
