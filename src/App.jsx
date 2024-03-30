@@ -1,4 +1,4 @@
-import { Flex } from "@radix-ui/themes";
+import { Avatar, Flex } from "@radix-ui/themes";
 import "@radix-ui/themes/styles.css";
 import "./index.css";
 import useGetMessages from "./hooks/useGetMessages";
@@ -6,12 +6,17 @@ import Messages from "./component/Messages";
 import SendMessage from "./component/SendMessage";
 import LoadingSpinner from "./component/LoadingSpinner/LoadingSpinner";
 import Header from "./component/Header";
+import useGetUserInfo from "./hooks/useGetUserInfo";
 
 function App() {
-  const { loading, sent, received } = useGetMessages();
-  console.log("messages", sent, received);
+  const { loading: messagesLoading, sent, received } = useGetMessages();
+  const { data: userInfo } = useGetUserInfo();
+  const currentUser = userInfo?.ensName || "Guest";
+  const userImage = userInfo?.image;
 
-  const currentUser = sent.length > 0 ? sent[0].sender : "Guest";
+  // console.log("userImage", userImage);
+
+  // const currentUser = sent.length > 0 ? sent[0].sender : "Guest";
 
   return (
     <main className="p-8">
@@ -21,6 +26,9 @@ function App() {
       <p className="capitalize">
         Hello <span className="uppercase">{currentUser}</span>, welcome back!
       </p>
+      {userImage && (
+        <Avatar src={`https://${userImage}`} alt={`${currentUser}'s avatar`} />
+      )}
 
       <Flex
         wrap={"wrap"}
@@ -29,7 +37,7 @@ function App() {
         align={"center"}
         pb={"2rem"}
       >
-        {loading ? (
+        {messagesLoading ? (
           <LoadingSpinner />
         ) : (
           <Flex>
