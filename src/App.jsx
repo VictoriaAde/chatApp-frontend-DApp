@@ -6,12 +6,10 @@ import Messages from "./component/Messages";
 import SendMessage from "./component/SendMessage";
 import LoadingSpinner from "./component/LoadingSpinner/LoadingSpinner";
 import Header from "./component/Header";
-import { useState } from "react";
 
 function App() {
   const { loading, sent, received } = useGetMessages();
   console.log("messages", sent, received);
-  const [cid, setCid] = useState();
 
   const currentUser = sent.length > 0 ? sent[0].sender : "Guest";
 

@@ -12,7 +12,7 @@ This project implements a decentralized chat application on the Ethereum blockch
 - **Chat Contract:**
   - Enables peer-to-peer messaging between registered users.
   - Retrieves user information (names and images) from the ENS contract.
-  - Deployed at: [Chat Contract Address on Mumbai Testnet] (https://mumbai.polygonscan.com/address/0x4C48217c3007EdD90c8Aa884660467F3AF4fA753)
+  - Deployed at: [Chat Contract Address on Mumbai Testnet] (https://mumbai.polygonscan.com/address/0xd67dfbA465c3aeA921B95266A0eBDB32228D2e90)
   - Github Repo: [Chat Contract] (https://github.com/VictoriaAde/chatApp-using-ENS)
 - **Frontend:**
   - Connects to the ENS and Chat contracts using a Web3 library (e.g., MetaMask).
