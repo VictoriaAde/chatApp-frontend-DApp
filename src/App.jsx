@@ -22,7 +22,13 @@ function App() {
         Hello <span className="uppercase">{currentUser}</span>, welcome back!
       </p>
 
-      <Flex wrap={"wrap"} gap={"6"} direction={"column"} align={"center"}>
+      <Flex
+        wrap={"wrap"}
+        gap={"6"}
+        direction={"column"}
+        align={"center"}
+        pb={"2rem"}
+      >
         {loading ? (
           <LoadingSpinner />
         ) : (
